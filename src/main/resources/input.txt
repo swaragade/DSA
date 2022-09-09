@@ -1,2 +1,2 @@
-7
-2 5 6 11 22 22 10
+anagrams
+nagsaaam
