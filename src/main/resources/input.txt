@@ -1,2 +1,6 @@
-anagrams
-nagsaaam
+abc
+ac
+"abc"
+cabwefgewcwaefgcf
+cae
+"cwae"
