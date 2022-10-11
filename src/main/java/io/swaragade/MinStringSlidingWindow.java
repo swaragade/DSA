@@ -41,7 +41,7 @@ public class MinStringSlidingWindow {
         return store.getOrDefault(max, "");
     }
 
-    Boolean isExists(String testStr, List<String> subList){
+    Boolean isExists(String testStr, List<String> subList) {
         List<String> testList = Arrays.asList(testStr.split(""));
         Collections.sort(testList);
         out.println(subList);
@@ -49,23 +49,22 @@ public class MinStringSlidingWindow {
         out.println("--------");
         int i = 0;
         int j = 0;
-        while (i < subList.size() && j < testList.size()){
+        while (i < subList.size() && j < testList.size()) {
             if (subList.get(i).equals(testList.get(j))) {
-                i++;j++;
-                if (i == subList.size() && j == testList.size()){
-                    return true;
-                }
-                else if (j == testList.size() && i < subList.size()){
-                    return false;
-                }else if (j < testList.size() && i == subList.size()){
-                    return true;
-                }
-            }else{
+                i++;
                 j++;
-                if (j == testList.size() && i < subList.size()){
+                if (i == subList.size() && j == testList.size()) {
+                    return true;
+                } else if (j == testList.size() && i < subList.size()) {
                     return false;
+                } else if (j < testList.size() && i == subList.size()) {
+                    return true;
                 }
-                else if (j < testList.size() && i == subList.size()){
+            } else {
+                j++;
+                if (j == testList.size() && i < subList.size()) {
+                    return false;
+                } else if (j < testList.size() && i == subList.size()) {
                     return false;
                 }
             }
