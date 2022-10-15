@@ -25,9 +25,6 @@ public class IsValidPalindrome {
                 j--;
                 continue;
             }
-            if (i == j){
-                break;
-            }
             if( arr[i] != arr[j]){
                 return false;
             }
