@@ -3,7 +3,6 @@ package io.swaragade;
 // cmd + option + L : format code
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class TopKFrequentElement {
     // https://leetcode.com/problems/top-k-frequent-elements/description/
@@ -19,21 +18,24 @@ public class TopKFrequentElement {
     }
 
     public int[] topKFrequent(int[] nums, int k) {
-
+        //Collections.reverseOrder()
+        PriorityQueue<Map.Entry<Integer, Integer>> heap = new PriorityQueue<>((a, b) -> a.getValue().compareTo(b.getValue()));
         Map<Integer, Integer> store = new HashMap<>();
         for (int i : nums) {
             store.put(i, store.getOrDefault(i, 0) + 1);
         }
-        int[] sortStore = new int[nums.length];
-        Arrays.fill(sortStore, 0);
-        for(Integer key : store.keySet()){
-            sortStore[store.get(key)] = key;
+        for (Map.Entry<Integer, Integer> it : store.entrySet()) {
+            heap.add(it);
+            if (heap.size() > k) {
+                heap.poll();
+            }
         }
-        int[] fn = new int[k];
-        for (int i = 0; i < k; i++) {
-            fn[i] = sortStore.get(0);
+        int[] arr = new int[k];
+        int i = k - 1;
+        while (!heap.isEmpty()) {
+            arr[i--] = heap.poll().getKey();
         }
-        return fn;
+        return arr;
     }
 
 }
