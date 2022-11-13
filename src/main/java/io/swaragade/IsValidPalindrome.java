@@ -16,16 +16,16 @@ public class IsValidPalindrome {
         char[] arr = s.toCharArray();
         int i = 0;
         int j = arr.length - 1;
-        while(i != j && i < arr.length && j >=0){
-            if(!isAlphaNum(arr[i])){
+        while (i != j && i < arr.length && j >= 0) {
+            if (!isAlphaNum(arr[i])) {
                 i++;
                 continue;
             }
-            if(!isAlphaNum(arr[j])){
+            if (!isAlphaNum(arr[j])) {
                 j--;
                 continue;
             }
-            if( arr[i] != arr[j]){
+            if (arr[i] != arr[j]) {
                 return false;
             }
             i++;
@@ -34,13 +34,10 @@ public class IsValidPalindrome {
         return true;
     }
 
-    boolean isAlphaNum(char c){
+    boolean isAlphaNum(char c) {
         boolean res = false;
-        if((c >=48 && c<= 57) || (c >=65 && c<=90))
+        if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90))
             res = true;
-        else {
-            res = false;
-        }
         //System.out.println(c + ":" +res);
         return res;
     }
